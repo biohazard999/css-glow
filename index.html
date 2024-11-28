@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glow Animation</title>
+  <style>
+    /* Define the glow animation */
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 0px rgba(255, 255, 0, 0);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(255, 255, 0, 1);
+      }
+      100% {
+        box-shadow: 0 0 0px rgba(255, 255, 0, 0);
+      }
+    }
+
+    /* Class to apply the glow effect */
+    .glow {
+      animation: glow 2s ease-in-out;
+    }
+    
+    /* Example element styling */
+    .example {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid #000;
+      background-color: #fff;
+      font-size: 16px;
+      text-align: center;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="myElement" class="example">Highlight Me</div>
+  <button onclick="highlight()">Trigger Glow</button>
+
+  <script>
+    function highlight() {
+      const element = document.getElementById('myElement');
+      element.classList.add('glow');
+
+      // Remove the class after the animation ends
+      setTimeout(() => {
+        element.classList.remove('glow');
+      }, 2000); // Match the animation duration
+    }
+  </script>
+</body>
+</html>
